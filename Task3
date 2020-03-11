@@ -1,0 +1,8 @@
+; № 3 Определите функцию, заменяющую в исходном списке все вхождения заданного значения другим
+
+(defun sbst (n m w)
+   (cond ((null w) nil)
+         ((equal (car w) m) (cons n (sbst n m (cdr w))))
+         ((cons (car w) (sbst n m (cdr w))))))
+ 
+(print(sbst 2 3 '(1 2 3)))
