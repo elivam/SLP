@@ -3,4 +3,4 @@
 
 <a href= "https://rextester.com/l/common_lisp_online_compiler" /></a>
 
-Не сделаны задачи : 17, 45, 46
+Не сделаны задачи : 17, 45, 46, 40
