@@ -14,5 +14,5 @@
                 )
 )
 
-(print (srt '(1 7 6 4 53 6 11 67)))
-(print (srt '(h e l l o)))
+(print (str '(1 7 6 4 53 6 11 67)))
+(print (str '(h e l l o)))

@@ -3,11 +3,11 @@
 ;> (ПЕРВЫЙ-АТОМ ’(((a b)) c d))
 ;A
 
-(defun firstAtom(lst)
+(defun first-atom(lst)
    (cond ((atom (car lst)) (car lst))
-          (t (firstAtom(car lst)))
+          (t (first-atom(car lst)))
    )    
 )
 
-(print (firstAtom '(((a b)) c d)))
-(print (firstAtom '((((a b) b)) c d)))
+(print (first-atom '(((a b)) c d)))
+(print (first-atom '((((a b) b)) c d)))

@@ -1,8 +1,8 @@
 ; № 4 Определите функцию, порождающую по заданному натуральному числу N список, состоящий из натуральных чисел от 1 до N.
 
-(defun reverseEl (w &optional acc)
+(defun reverse-el (w &optional acc)
   (cond ((null w) acc)
-        ((reverseEl (cdr w) (cons (car w) acc)))
+        ((reverse-el (cdr w) (cons (car w) acc)))
    )
 )
  
@@ -14,4 +14,4 @@
 )
  
 ;(print(natur 4))
-(print(reverseEl (natur 10)))
+(print(reverse-el (natur 10)))
