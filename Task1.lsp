@@ -109,16 +109,18 @@
 ;элементы с четными номерами.
 
 (defun str (ls)
+               ((lambda (el-cddr) 
                 (cond ((null (car ls)) ls)
                     (t 
-                        (setq qlst (str (cddr ls)))
                         (list
-                            (cons (car ls) (car qlst))
-                            (cons (cadr ls) (cadr qlst))
+                            (cons (car ls) (car(str el-cddr)))
+                            (cons (cadr ls) (car(str el-cddr)))
                         )
                     )
-                )
+                ) ) (cddr ls) )
 )
 
 (print (str '(1 7 6 4 53 6 11 67)))
 (print (str '(h e l l o)))
+
+
