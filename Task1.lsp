@@ -103,4 +103,37 @@
 (print (str '(1 7 6 4 53 6 11 67)))
 (print (str '(h e l l o)))
 
+;           НОВЫЕ
+;------------------------------------------------------
+;№ 40 Определите функцию РАЗНОСТЬ, формирующую разность двух множеств, т.е.
+;удаляющую из первого множества все общие со вторым множеством элементы
 
+(defun delel (lst el)
+    ( 
+        (lambda (el-car el-cdr)
+            (cond ((null lst) NIL)
+                ((equalp el-car el) el-cdr)
+                (t (cons el-car (delel el-cdr el)))
+            )   
+        )
+        (car lst) (cdr lst)
+    )
+)
+ 
+(defun diff (minus deductible)
+    (
+        (lambda (el-car el-cdr)
+            (cond
+                ((null deductible) minus)
+                (t (diff (delel minus el-car) el-cdr))
+            )
+        )
+        (car deductible) (cdr deductible)
+    )
+)
+
+(print (diff `(1 100 87 4) `(1 4)))
+(print (diff `(34 5 67 6 1 4) `(1 34 3 4)))
+(print (diff `(1 2 3 10) `(6 99 8)))
+(print (diff `(h 2 3 10) `(6 j h 3)))
+(print (diff `(Hello world) `(world)))
