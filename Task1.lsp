@@ -137,3 +137,34 @@
 (print (diff '(1 2 3 10) '(6 99 8)))
 (print (diff '(h 2 3 10) '(6 j h 3)))
 (print (diff '(Hello world) '(world)))
+
+
+;------------------------------------------------------
+;№ 45 Предположим, что у имени города есть свойства х и у, 
+;которые содержат координаты места нахождения города относительно некоторого начала координат.
+;Напишите функцию (РАССТОЯНИЕ a b), вычисляющую расстояние между городами а и b.
+;Расстояние как между двумя координатами на плоскости
+
+(defun dist(x1 y1 x2 y2)
+  (sqrt (+  (expt (- x1 x2) 2) (expt (- y1 y2) 2) ))
+)
+(defun distance-between-cities (town1 town2)
+    (
+        (lambda (town1x town1y town2x town2y) 
+            (dist town1x town1y town2x town2y)
+        )
+     
+        (get town1 'x)
+        (get town1 'y)
+        (get town2 'x)
+        (get town2 'y)
+    )
+)
+
+(setf (get 'Simferopol 'x) 10)
+(setf (get 'Simferopol 'y) 20)
+(setf (get 'Kerch 'x) 230)
+(setf (get 'Kerch 'y) 50)
+
+(print (distance-between-cities 'Simferopol 'Kerch))
+;222.03603 
