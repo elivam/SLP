@@ -132,8 +132,8 @@
     )
 )
 
-(print (diff `(1 100 87 4) `(1 4)))
-(print (diff `(34 5 67 6 1 4) `(1 34 3 4)))
-(print (diff `(1 2 3 10) `(6 99 8)))
-(print (diff `(h 2 3 10) `(6 j h 3)))
-(print (diff `(Hello world) `(world)))
+(print (diff '(1 100 87 4) '(1 4)))
+(print (diff '(34 5 67 6 1 4) '(1 34 3 4)))
+(print (diff '(1 2 3 10) '(6 99 8)))
+(print (diff '(h 2 3 10) '(6 j h 3)))
+(print (diff '(Hello world) '(world)))
