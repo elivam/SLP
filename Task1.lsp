@@ -77,9 +77,9 @@
         (get town2 'y)
     )
 )
-(defun set-town (city_name coord-x coord-y)
-        (setf (get city_name 'x) coord-x)
-        (setf (get city_name 'y) coord-y)
+(defun set-town (city_name coord_x coord_y)
+        (setf (get city_name 'x) coord_x)
+        (setf (get city_name 'y) coord_y)
 )
 
 (set-town  'Simferopol 10 20)
