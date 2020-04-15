@@ -78,13 +78,17 @@
     )
 )
 
-(setf (get 'Simferopol 'x) 10)
-(setf (get 'Simferopol 'y) 20)
-(setf (get 'Kerch 'x) 230)
-(setf (get 'Kerch 'y) 50)
+(defun set-town (city_name coord number)
+    (setf (get city_name coord) number)
+)
+
+(set-town  'Simferopol 'x 10)
+(set-town  'Simferopol 'y 20)
+(set-town  'Kerch 'x 235)
+(set-town  'Kerch 'y 50)
 
 (print (distance-between-cities 'Simferopol 'Kerch))
-;222.03603 
+;226.9912
 
 ;           НОВЫЕ
 ;------------------------------------------------------
