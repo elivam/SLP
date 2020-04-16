@@ -1,92 +1,15 @@
 ; ----------------------- ПЕРЕДЕЛАННЫЕ --------------------------------------------------------
-; № 3 Определите функцию, заменяющую в исходном списке все вхождения заданного значения другим
-; х - замена, repEl - заменяемое значение в списке, list - список
-;------------------------- ПРИЧИНА : "(зачем два лямбда-выражения?)"----------------------------
-
-(defun replac (x repEl lst) 
-   (
-    (lambda (el-car el-cdr) 
-      (cond ((null lst) nil)
-         ((equal el-car repEl) (cons x (replac x repEl el-cdr)))
-         ((cons el-car (replac x repEl el-cdr)))
-      ) 
-    ) (car lst) (cdr lst)
-   ) 
-)
- 
-(print(replac 90 1 '(1 2 3 4 5 6 1 1)))
 ;------------------------------------------------------------
 ; № 4 Определите функцию, порождающую по заданному натуральному числу N список, состоящий из натуральных чисел от 1 до N.
 ;------------------------- ПРИЧИНА : "(через append) "----------------------------
-(defun reverse-el (N)
-      (cond ((< N 1) nil)
-           ( t (append (reverse-el(- N 1)) (list(car(natur N))) ))
-      )     
-)
-
 (defun natur(N)
    (cond ((< N 1) nil)
-         (t (cons N (natur (- N 1))))
+         (t (append (natur (- N 1)) (list N) ))
    )
 )
  
 ;(print(natur 4))
-(print(reverse-el 10))
-
-;-----------------------------------------------------------------------------
-;№ 9, Определите функцию, разделяющую исходный список на два подсписка. В
-;первый из них должны попасть элементы с нечетными номерами, во второй —
-;элементы с четными номерами.
-;;------------------------- ПРИЧИНА : "(Повторяющиеся конструкции, что здесь значит str?)" --------
-
-(defun division (ls)
-    ( 
-       (lambda (el-cddr el-car) 
-                (cond ((null el-car) ls)
-                    (t 
-                        (list
-                            (cons el-car (car  (division el-cddr)))
-                            (cons (cadr ls) (cadr  (division el-cddr)))
-                        )
-                    )
-                ))
-         (cddr ls) (car ls) 
-     )
-)
-(print (division '(1 7 6 4 53 6 11 67)))
-(print (division '(m e a l v i i v l a e m)))
-
-;------------------------------------------------------
-;№ 45 Предположим, что у имени города есть свойства х и у, 
-;которые содержат координаты места нахождения города относительно некоторого начала координат.
-;Напишите функцию (РАССТОЯНИЕ a b), вычисляющую расстояние между городами а и b.
-;Расстояние как между двумя координатами на плоскости
-;;------------------------- ПРИЧИНА : "(добавить "удобные" функции, например, set-city)"-----------------------------
-(defun dist(x1 y1 x2 y2)
-  (sqrt (+  (expt (- x1 x2) 2) (expt (- y1 y2) 2) ))
-)
-(defun distance-between-cities (town1 town2)
-    (
-        (lambda (town1x town1y town2x town2y) 
-            (dist town1x town1y town2x town2y)
-        )
-     
-        (get town1 'x)
-        (get town1 'y)
-        (get town2 'x)
-        (get town2 'y)
-    )
-)
-(defun set-town (city_name coord_x coord_y)
-        (setf (get city_name 'x) coord_x)
-        (setf (get city_name 'y) coord_y)
-)
-
-(set-town  'Simferopol 10 20)
-(set-town  'Kerch 235 50)
-
-(print (distance-between-cities 'Simferopol 'Kerch))
-;226.9912
+(print(natur 10))
 
 ;-------------------------------НОВЫЕ-------------------------------------------
 ;-----------------------------------------------------------------------------
@@ -269,4 +192,77 @@
 (print (diff '(1 2 3 10) '(6 99 8)))
 (print (diff '(h 2 3 10) '(6 j h 3)))
 (print (diff '(Hello world) '(world)))
+
+;------------------------------------------------------------
+; № 3 Определите функцию, заменяющую в исходном списке все вхождения заданного значения другим
+; х - замена, repEl - заменяемое значение в списке, list - список
+;------------------------- ПРИЧИНА : "(зачем два лямбда-выражения?)"----------------------------
+
+(defun replac (x repEl lst) 
+   (
+    (lambda (el-car el-cdr) 
+      (cond ((null lst) nil)
+         ((equal el-car repEl) (cons x (replac x repEl el-cdr)))
+         ((cons el-car (replac x repEl el-cdr)))
+      ) 
+    ) (car lst) (cdr lst)
+   ) 
+)
+ 
+(print(replac 90 1 '(1 2 3 4 5 6 1 1)))
+
+;-----------------------------------------------------------------------------
+;№ 9, Определите функцию, разделяющую исходный список на два подсписка. В
+;первый из них должны попасть элементы с нечетными номерами, во второй —
+;элементы с четными номерами.
+;;------------------------- ПРИЧИНА : "(Повторяющиеся конструкции, что здесь значит str?)" --------
+
+(defun division (ls)
+    ( 
+       (lambda (el-cddr el-car) 
+                (cond ((null el-car) ls)
+                    (t 
+                        (list
+                            (cons el-car (car  (division el-cddr)))
+                            (cons (cadr ls) (cadr  (division el-cddr)))
+                        )
+                    )
+                ))
+         (cddr ls) (car ls) 
+     )
+)
+(print (division '(1 7 6 4 53 6 11 67)))
+(print (division '(m e a l v i i v l a e m)))
+
+;------------------------------------------------------
+;№ 45 Предположим, что у имени города есть свойства х и у, 
+;которые содержат координаты места нахождения города относительно некоторого начала координат.
+;Напишите функцию (РАССТОЯНИЕ a b), вычисляющую расстояние между городами а и b.
+;Расстояние как между двумя координатами на плоскости
+;;------------------------- ПРИЧИНА : "(добавить "удобные" функции, например, set-city)"-----------------------------
+(defun dist(x1 y1 x2 y2)
+  (sqrt (+  (expt (- x1 x2) 2) (expt (- y1 y2) 2) ))
+)
+(defun distance-between-cities (town1 town2)
+    (
+        (lambda (town1x town1y town2x town2y) 
+            (dist town1x town1y town2x town2y)
+        )
+     
+        (get town1 'x)
+        (get town1 'y)
+        (get town2 'x)
+        (get town2 'y)
+    )
+)
+(defun set-town (city_name coord_x coord_y)
+        (setf (get city_name 'x) coord_x)
+        (setf (get city_name 'y) coord_y)
+)
+
+(set-town  'Simferopol 10 20)
+(set-town  'Kerch 235 50)
+
+(print (distance-between-cities 'Simferopol 'Kerch))
+;226.9912
 
