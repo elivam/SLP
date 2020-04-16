@@ -3,6 +3,7 @@
 
 <a href= "https://rextester.com/l/common_lisp_online_compiler" /></a>
 <b> Блок первый </b>
+
 Переделала задачи № : 3, 4, 9, 45
 
 Новые сделанные задачи: 46
