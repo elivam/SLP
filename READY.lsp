@@ -147,3 +147,24 @@
 )
  
 (print (apl-apply '(car cadr add-one) '((10 11 34) ( 17 78 89 ) 70 1 2)))
+;9 Напишите генератор порождения чисел Фибоначчи: 0, 1, 1, 2, 3, 5, ...
+
+(defun make-fibonachi-numbers-counter ()
+    (let ((f1 0) (f2 1))
+        (lambda ()
+            (setq v f1
+                f1 (+ f2 f1)
+                f2 v
+             )
+         )
+    )
+)
+
+(setq fib (make-fibonachi-numbers-counter))
+
+(print (funcall fib))
+(print (funcall fib))
+(print (funcall fib))
+(print (funcall fib))
+(print (funcall fib))
+(print (funcall fib))
