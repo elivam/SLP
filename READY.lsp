@@ -58,59 +58,6 @@
 (print (parents 'Alim))
 (print (relatives 'Amet 'Ilim))
 
-;-------------------------------НОВЫЕ-------------------------------------------
-;-----------------------------------------------------------------------------
-;№ 17 Создайте предикат, порождающий всевозможные перестановки исходного множества.
-(defun insert-elem-in-each-position (elem list)
-	(cond
-		((null list) (list elem))
-		((atom list) (insert-elem-in-each-position elem (list list)))
-		(t (cons (cons elem list)
-			     (insert-elem-in-each-position-aux elem nil list)))
-	)
-)
-
-(defun insert-elem-in-each-position-aux (elem list1 list2)
-	(cond
-		((null list2) nil)
-		(t
-			((lambda (a)
-				(cons
-					(append (car a) (list elem) (cadr a))
-					((lambda (x)
-						(insert-elem-in-each-position-aux elem
-							(first x)
-							(second x)))
-					a))
-			)
-			((lambda (list1 list2)
-				(list (append list1 (list (car list2))) (cdr list2)))
-			list1 list2)))
-		)
-	)
-
-
-(defun add-elem-for-each-permutation (elem perm-lst)
-	(cond
-		((null perm-lst) nil)
-		(t (append
-				(insert-elem-in-each-position elem (car perm-lst))
-				(add-elem-for-each-permutation elem (cdr perm-lst))))
-	)
-)
-
-(defun my-permutation (lst)
-	(cond
-		((null lst) nil)
-		((null (cdr lst)) (list lst))
-		(t (add-elem-for-each-permutation
-			(car lst)
-			(my-permutation (cdr lst))))
-	)
-)
-
-(my-permutation '(1 2 3))
-; ((1 2 3) (2 1 3) (2 3 1) (1 3 2) (3 1 2) (3 2 1))
 
 ;----------------------------2 БЛОК ЗАДАЧ-----------------------------------------
 ;----------------------------НЕЧЕТНЫЕ-----------------------------------
