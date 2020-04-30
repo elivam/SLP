@@ -44,4 +44,3 @@
 
 (print (parents 'Alim))
 (print (relatives 'Amet 'Ilim))
-
