@@ -83,12 +83,17 @@
 )
 
 (defun pred-check-not-eq-setf-arg (arg)
-	(cond ((eq arg 10) nil)
+	(cond ((null (get arg 'prop)) nil)
 		(t (list arg))
 	)
 )
-  
-(setf A 10)
-(setf B 10)
 
-(print (delet-if-not 'pred-check-not-eq-setf-arg '(A B D C F)))
+(defun set-prop(sym)
+ (setf (get sym 'prop) 'sym)
+) 
+
+(set-prop 'A)
+(set-prop 'K)
+(set-prop 'M)
+
+(print (delet-if-not 'pred-check-not-eq-setf-arg '(C A K Z A L M M)))
