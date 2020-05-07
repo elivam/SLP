@@ -48,14 +48,22 @@
     )
 )
 
-(setq fib (make-fibonachi-numbers-counter))
+(setq fib1 (make-fibonachi-numbers-counter))
+(setq fib2 (make-fibonachi-numbers-counter))
 
-(print (funcall fib))
-(print (funcall fib))
-(print (funcall fib))
-(print (funcall fib))
-(print (funcall fib))
-(print (funcall fib))
+(print 'first-seq)
+(print (funcall fib1))
+(print (funcall fib1))
+(print (funcall fib1))
+(print (funcall fib1))
+(print (funcall fib1))
+
+(print 'second-seq)
+(print (funcall fib2))
+(print (funcall fib2))
+(print (funcall fib2))
+(print (funcall fib2))
+(print (funcall fib2))
 ;-----------------------------------------------------------------------
 ;28.04.2020
 ;№ 5 Определите функциональный предикат (НЕКОТОРЫй пред список), 
@@ -97,3 +105,29 @@
 (set-prop 'M)
 
 (print (delet-if-not 'pred-check-not-eq-setf-arg '(C A K Z A L M M)))
+
+;06.05.2020
+; № 11 Определите фукнционал МНОГОФУН, который использует функции, являющиеся
+;аргументами, по следующей схеме:
+;(МНОГОФУН ’(f g ... h) x) ⇔ (LIST (f x) (g x) ... (h x)).
+
+(defun many-func (funcs x)
+  (mapcar (lambda (f) 
+                  (list f (list x))
+           ) funcs)
+)
+
+(defun many-func-rez (funcs x)
+  (mapcar (lambda (f) 
+                  (apply  f (list x))
+           ) funcs)
+)
+
+
+(defun f (x) (* x 1))
+(defun g (x) (+ x 1))
+(defun h (x) (/ x 1))
+
+(print (many-func '(f g h) 5))
+(print (many-func-rez '(f g h) 5))
+
