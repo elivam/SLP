@@ -29,10 +29,4 @@
 (print (apl-apply '(car cadr mult-two) '((10 11 34) ( 17 78 89 ) 1 )))
 
 (print (apl-apply '(mult-two caddr mult-two car) '(90 (10 11 34)  17  (13 12) 11)))
-; ----------------------------------------------------------------------
-; № 13 Определите функцию, которая возвращает в качестве значения свое определение (лямбда-выражение).
 
-(defun self ()
-	(caddr (cadddr (function-lambda-expression `self))))
-
-(print (self))
