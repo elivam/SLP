@@ -182,7 +182,12 @@
 
 > fib(N) when N > 1 -> fib(N - 1) + fib(N - 2).
 
-
+Ссылки:
+[Documentation](https://www.erlang.org/docs)
+[Статья habr](https://habr.com/ru/post/50028/)
+[Статья hexlet](https://ru.hexlet.io/courses/erlang_101/lessons/practical_erlang_intro_and_types/theory_unit)
+[Статья wiki](https://ru.qwe.wiki/wiki/Erlang_(programming_language) )
+[Статья riptutorial](https://riptutorial.com/ru/erlang )
 
 
 
