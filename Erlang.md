@@ -209,7 +209,7 @@ fib(N) when N > 1 -> fib(N - 1) + fib(N - 2).
 
 4. [Статья wiki общие положения](https://ru.qwe.wiki/wiki/Erlang_(programming_language) )
 
-5. [Статья riptutorial](https://riptutorial.com/ru/erlang )
+5. [Статья riptutorial примеры](https://riptutorial.com/ru/erlang )
 
 
 
