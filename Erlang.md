@@ -16,6 +16,18 @@
 Эрланг в настоящее время используется в узлах поддержки, а также в GPRS , 3G и LTE мобильных сетей по всему миру , а также Nortel и T-Mobile .
 Так же для используется написания серверов видеостриминга и чатов. Erlang идеален там, где нет сложных вычислений или работы с большими объемами данных, но есть много клиентов и жесткие требования к отказоустойчивости, многопоточность.
 
+Erlang исполняющая система известна своими проектами , которые хорошо подходят для систем со следующими характеристиками:
+
+ - Распределенные;
+ 
+ - Отказоустойчивые;
+ 
+ - Множество параллельных процесов;
+ 
+ - Высокодоступные , нон-стоп приложения;
+ 
+ - Код может быть изменен без остановки системы.
+
 ## <b>Как использовать язык</b>
 
 Программирование на Erlang - программирование на уровне отдельных, изолированных процессов, не имеющих доступа к памяти другим.
@@ -191,11 +203,11 @@ fib(N) when N > 1 -> fib(N - 1) + fib(N - 2).
 
 1. [Documentation](https://www.erlang.org/docs)
 
-2. [Статья habr](https://habr.com/ru/post/50028/)
+2. [Статья habr общие факты](https://habr.com/ru/post/50028/)
 
-3. [Статья hexlet](https://ru.hexlet.io/courses/erlang_101/lessons/practical_erlang_intro_and_types/theory_unit)
+3. [Статья hexlet Вступление. Типы данных.](https://ru.hexlet.io/courses/erlang_101/lessons/practical_erlang_intro_and_types/theory_unit)
 
-4. [Статья wiki](https://ru.qwe.wiki/wiki/Erlang_(programming_language) )
+4. [Статья wiki общие положения](https://ru.qwe.wiki/wiki/Erlang_(programming_language) )
 
 5. [Статья riptutorial](https://riptutorial.com/ru/erlang )
 
